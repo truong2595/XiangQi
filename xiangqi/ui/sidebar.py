@@ -11,24 +11,25 @@ PANEL_TEXT = (20, 20, 20)
 PANEL_TITLE = (80, 80, 80)
 SEPARATOR = (200, 200, 200)
 
-def _fmt_move(m: Move) -> str:
-    return f"{m.from_file}{m.from_rank}-{m.to_file}{m.to_rank}"
-
+# Vẽ danh sách nước đi vào thanh bên
 def _fmt_sq(f: int, r: int) -> str:
     # file -> chữ (A..I), rank giữ nguyên số
     ch = FILE_LETTERS[f] if 0 <= f < len(FILE_LETTERS) else str(f)
     return f"{ch}{r}"
 
+# Định dạng nước đi thành chuỗi hiển thị
 def _fmt_move(m: Move) -> str:
     # Chỉ in nước đi theo định dạng: E2->E3
     return f"{_fmt_sq(m.from_file, m.from_rank)}->{_fmt_sq(m.to_file, m.to_rank)}"
 
+# Lấy danh sách Move từ lịch sử Game
 def _history_moves(game) -> List[Move]:
     # Lấy danh sách Move từ lịch sử Game (đọc _history nếu chưa có API công khai)
     if hasattr(game, "_history"):
         return [h.move for h in game._history]  # type: ignore[attr-defined]
     return []
 
+# Vẽ danh sách nước đi vào thanh bên
 def draw_move_list(surface: pygame.Surface, layout: Layout, game, font: pygame.font.Font) -> None:
     if layout.sidebar_w <= 0:
         return

@@ -13,6 +13,7 @@ GRID = (80, 60, 30)
 RIVER_BG = (210, 180, 120)
 PALACE_LINE = (100, 80, 40)
 
+# Vẽ bàn cờ
 def draw_board(surface: pygame.Surface, layout: Layout) -> None:
     surface.fill(BG)
     ox, oy, cell = layout.origin_x, layout.origin_y, layout.cell
@@ -45,6 +46,7 @@ def draw_board(surface: pygame.Surface, layout: Layout) -> None:
     pygame.draw.line(surface, PALACE_LINE, pt(3, 9), pt(5, 7), 2)
     pygame.draw.line(surface, PALACE_LINE, pt(5, 9), pt(3, 7), 2)
 
+# Vẽ quân cờ
 def draw_pieces(surface: pygame.Surface, board: Board, images, layout: Layout) -> None:
     for p in board.pieces:
         if p.captured:
@@ -61,6 +63,7 @@ def draw_pieces(surface: pygame.Surface, board: Board, images, layout: Layout) -
         else:
             surface.blit(img, rect)
 
+# Vẽ nhãn cột A..I bên dưới
 def draw_file_labels(surface: pygame.Surface, layout, font: pygame.font.Font, letters: str = FILE_LETTERS) -> None:
     ox, oy, cell = layout.origin_x, layout.origin_y, layout.cell
     y_bottom = oy + (BOARD_RANKS - 1) * cell + int(cell * 0.55)
@@ -72,6 +75,7 @@ def draw_file_labels(surface: pygame.Surface, layout, font: pygame.font.Font, le
         rect = surf.get_rect(center=(x, y_bottom))
         surface.blit(surf, rect)
 
+# Vẽ nhãn hàng 0..9 bên trái
 def draw_rank_labels(surface: pygame.Surface, layout, font: pygame.font.Font) -> None:
     ox, cell = layout.origin_x, layout.cell
     x_left  = ox - int(cell * 0.70)

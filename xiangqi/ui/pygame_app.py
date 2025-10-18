@@ -12,6 +12,7 @@ from xiangqi.ui.renderer import render, draw_file_labels, draw_rank_labels
 from xiangqi.ui.highlight import draw_highlights
 from xiangqi.ui.sidebar import draw_move_list
 
+
 def run() -> None:
     pygame.init()
     pygame.font.init()

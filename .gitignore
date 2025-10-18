@@ -9,4 +9,6 @@ __pycache__/
 
 # Các file cấu hình IDE (Ví dụ: VS Code, PyCharm)
 .vscode/
-.idea/
+.idea/git add .gitignore
+git commit -m "Thêm .gitignore để loại bỏ file tạm thời của Python"
+git push
