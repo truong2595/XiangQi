@@ -1,0 +1,2 @@
+# Core engine dependencies (hiện tại chưa cần thư viện ngoài)
+# Giữ file này để sau này thêm (ví dụ: numpy cho AI)
