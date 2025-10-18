@@ -1,0 +1,12 @@
+# Môi trường Ảo (Virtual Environments)
+venv/
+.venv/
+env/
+
+# Bytecode của Python
+__pycache__/
+*.pyc
+
+# Các file cấu hình IDE (Ví dụ: VS Code, PyCharm)
+.vscode/
+.idea/
